@@ -35,7 +35,7 @@ class Corpus(object):
         """Tokenizes a text file."""
         assert os.path.exists(path)
         # Add words to the dictionary
-        with open(path, 'r') as f:
+        with open(path, 'r', encoding="ISO-8859-1") as f:
             tokens = 0
             for line in f:
                 words = line.split() + ['<eos>']
@@ -44,7 +44,7 @@ class Corpus(object):
                     self.dictionary.add_word(word)
 
         # Tokenize file content
-        with open(path, 'r') as f:
+        with open(path, 'r', encoding="ISO-8859-1") as f:
             ids = torch.LongTensor(tokens)
             token = 0
             for line in f:
