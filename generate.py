@@ -47,7 +47,7 @@ if args.temperature < 1e-3:
     parser.error("--temperature has to be greater or equal 1e-3")
 
 with open(args.checkpoint, 'rb') as f:
-    model = torch.load(f)
+    model, _, _ = torch.load(f)
 model.eval()
 if args.model == 'QRNN':
     model.reset()
